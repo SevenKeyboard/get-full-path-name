@@ -12,7 +12,7 @@
 ;==============================================================
 getFullPathName(fileName)    {
     bufferLength := dllCall("Kernel32.dll\GetFullPathName", "Str",fileName, "UInt",0, "Ptr",0, "Ptr",0, "UInt")
-    ,varSetCapacity(buf, bufferLength * (A_IsUnicode ? 2 : 1), 0)
+    ,varSetCapacity(fullPathName, bufferLength * (A_IsUnicode ? 2 : 1), 0)
     ,dllCall("Kernel32.dll\GetFullPathName", "Str",fileName, "UInt",bufferLength, "Str",fullPathName, "Ptr",0, "UInt")
     return fullPathName
 }
