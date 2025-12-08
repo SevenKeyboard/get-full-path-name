@@ -14,5 +14,5 @@ getFullPathName(fileName)    {
     bufferLength := dllCall("Kernel32.dll\GetFullPathNameW", "Str",fileName, "UInt",0, "Ptr",0, "Ptr",0, "UInt")
     ,buf := buffer(bufferLength * 2, 0)
     ,dllCall("Kernel32.dll\GetFullPathNameW", "Str",fileName, "UInt",bufferLength, "Ptr",buf.Ptr, "Ptr",0, "UInt")
-    return strGet(buf) ;  fullPath
+    return strGet(buf) ;  fullPathName
 }
